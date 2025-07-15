@@ -10,7 +10,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 
 class FirstCNN(nn.Module):
-    def __init__(self, input_shape: int):
+    def __init__(self, input_shape=3):
         super().__init__()
         self.conv_block_1 = nn.Sequential(
             nn.Conv2d(
@@ -73,6 +73,3 @@ class FirstCNN(nn.Module):
         x = self.adaptive_pool(x)
         x = self.classifier(x)
         return x
-
-
-torch.manual_seed(42)
